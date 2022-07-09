@@ -16,20 +16,16 @@ class Api {
 
     getUserInfo() {
         return fetch(`${this._adress}/users/me`, {
-            headers: {
-                authorization: this._token
-            }
-        }) .then(this._getResponseData)
+            headers: this._headers,
+        }).then(this._getResponseData)
     }
 
     // загрузка карточек
 
     getCards() {
         return fetch(`${this._adress}/cards`, {
-            headers: {
-                authorization: this._token
-            }
-        }) .then(this._getResponseData)
+            headers: this._headers,
+        }).then(this._getResponseData)
     }
   
     // отправка информации о пользователе на сервер
@@ -37,15 +33,12 @@ class Api {
     editInfo(name, status) {
         return fetch(`${this._adress}/users/me`, {
             method: "PATCH",
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 name: name,
                 about: status
             })
-        }) .then(this._getResponseData)
+        }).then(this._getResponseData)
     }
 
     // загрузка карточки на сервер
@@ -53,15 +46,12 @@ class Api {
     uploadCard(cardName, cardLink) {
         return fetch(`${this._adress}/cards`, {
             method: "POST",
-            headers: {
-                authorization: this._token,
-                'Content-type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 name: cardName,
                 link: cardLink
             })
-        }) .then(this._getResponseData)
+        }).then(this._getResponseData)
     }
 
     // удаление карточки
@@ -70,10 +60,8 @@ class Api {
         if(isMine) {
                 return fetch(`${this._adress}/cards/${cardId}`, {
                 method: "DELETE",
-                headers: {
-                    authorization: this._token,
-                }
-            }) .then(this._getResponseData)
+                headers: this._headers,
+            }).then(this._getResponseData)
         }
     }
 
@@ -82,17 +70,13 @@ class Api {
         if(isLiked) {
             return fetch(`${this._adress}/cards/${cardId}/likes`, {
                 method: "DELETE",
-                headers: {
-                    authorization: this._token,
-                }
-            }) .then(this._getResponseData)
+                headers: this._headers,
+            }).then(this._getResponseData)
         } else {
             return fetch(`${this._adress}/cards/${cardId}/likes`, {
                 method: "PUT",
-                headers: {
-                    authorization: this._token,
-                }
-            }) .then(this._getResponseData)
+                headers: this._headers,
+            }).then(this._getResponseData)
         }
     } 
     
@@ -101,19 +85,16 @@ class Api {
     changeAvatar(link) {
         return fetch(`${this._adress}/users/me/avatar`, {
             method: "PATCH",
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json'
-            },
+            headers: this._headers,
             body: JSON.stringify({
                 avatar: link
             })
-        }) .then(this._getResponseData)
+        }).then(this._getResponseData)
     }
 }
     // создание класса АПИ и его экспорт
 
 export const api = new Api({
-    adress: 'https://mesto.nomoreparties.co/v1/cohort-35',
-    token: 'd4eb43b8-f03a-4178-a37e-1c688ba22106'
+    adress: 'plavskikh.mesto.nomorepartiesxyz.ru',
+    headers: { "Content-Type": "application/json" },
 })

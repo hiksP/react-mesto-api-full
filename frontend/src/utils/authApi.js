@@ -30,7 +30,7 @@ class AuthApi {
                 "Content-Type": "application/json" 
             },
             body: JSON.stringify({email, password})
-        }) .then((res) => this._getResponseData(res))
+        }).then((res) => this._getResponseData(res))
     }
 
     tokenCheck(token) {
@@ -40,12 +40,12 @@ class AuthApi {
                 "Content-Type": "application/json",
                 "Authorization" : `Bearer ${token}`
             }
-        }) .then(this._getResponseData)
+        }).then(this._getResponseData)
     }
 
 
 }
 
 export const authApi = new AuthApi({
-    baseUrl: 'https://auth.nomoreparties.co'
+    baseUrl: 'plavskikh.mesto.nomorepartiesxyz.ru'
 })
