@@ -1,0 +1,25 @@
+.elements__image {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.elements__image:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 881px) {
+  .elements__image {
+    width: 245px;
+    height: 245px;
+  }
+}
+
+@media screen and (max-width: 776px) {
+  .elements__image {
+    width: 282px;
+    height: 282px;
+  }
+}

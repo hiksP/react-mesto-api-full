@@ -1,0 +1,22 @@
+.elements__box {
+  width: 282px;
+  height: 100%;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: relative;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 881px) {
+  .elements__box {
+    width: 245px;
+  }
+}
+
+@media screen and (max-width: 776px) {
+  .elements__box {
+    width: 282px;
+  }
+}

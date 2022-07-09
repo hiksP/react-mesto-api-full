@@ -1,0 +1,8 @@
+.popup__list-element {
+  margin-bottom: 30px;
+}
+
+.popup__list-element:last-of-type {
+  margin-bottom: 45px;
+  padding-top: 13px;
+}

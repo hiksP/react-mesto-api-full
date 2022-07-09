@@ -1,0 +1,11 @@
+.popup__registration-message {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 29px;
+  margin: 32px auto 60px;
+  padding: 0;
+  max-width: 70%;
+  text-align: center;
+  
+}

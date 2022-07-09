@@ -1,0 +1,9 @@
+.header__text_button {
+    color: rgba(169, 169, 169, 1);
+    transition: opacity .3s linear;
+}
+
+.header__text_button:hover {
+    opacity: .6;
+    cursor: pointer;
+  }

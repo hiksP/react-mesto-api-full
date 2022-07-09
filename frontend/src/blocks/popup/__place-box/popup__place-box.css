@@ -1,0 +1,7 @@
+.popup__place-box {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  position: relative;
+}

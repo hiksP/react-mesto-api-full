@@ -1,0 +1,16 @@
+.sign__reminder {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 0 80px 0;
+  color: white;
+  text-decoration: none;
+  transition: opacity .3s linear;
+}
+
+.sign__reminder:hover {
+  opacity: .6;
+  cursor: pointer;
+}

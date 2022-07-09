@@ -1,0 +1,14 @@
+.sign__input {
+  background-color: black;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 17px;
+  color: rgba(204, 204, 204, 1);
+  margin: 0 0 30px 0;
+  padding: 0 0 13px 0;
+  border: none;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  outline: none;
+  width: 100%;
+}

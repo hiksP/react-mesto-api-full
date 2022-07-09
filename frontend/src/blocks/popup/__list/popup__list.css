@@ -1,0 +1,14 @@
+.popup__list {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  max-width: 358px;
+  width: calc(100% - 72px);
+}
+
+@media screen and (max-width: 600px) {
+  .popup__list {
+    max-width: 238px;
+    width: calc(100% - 44px);
+  }
+}
