@@ -47,5 +47,5 @@ class AuthApi {
 }
 
 export const authApi = new AuthApi({
-    baseUrl: 'plavskikh.mesto.nomorepartiesxyz.ru'
+    baseUrl: 'https://plavskikh.mesto.nomorepartiesxyz.ru'
 })
