@@ -1,7 +1,6 @@
 {
   "name": "mesto",
   "version": "0.1.0",
-  "homepage": "plavskikh.mesto.nomoredomains.xyz",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
@@ -14,7 +13,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "npm run build && scp -r ./build/* hiksvalp@130.193.40.147:/home/hiksvalp/mesto-frontend" ,
+    "deploy": "npm run build && scp -r ./build/* hiksvalp@158.160.2.253:/home/hiksvalp/react-mesto-api-full/frontend/build" ,
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
