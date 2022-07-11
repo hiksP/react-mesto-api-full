@@ -20,8 +20,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(requestLogger);
 app.use(cors);
+app.use(requestLogger);
 app.use(express.json());
 app.post('/signin', express.json(), celebrate({
   body: Joi.object().keys({
