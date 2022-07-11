@@ -20,6 +20,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors(
+  {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  },
+));
+
 app.use(requestLogger);
 app.use(express.json());
 app.post('/signin', express.json(), celebrate({
@@ -39,12 +46,6 @@ app.post('/signup', express.json(), celebrate({
     ),
   }),
 }), createUser);
-app.use(cors(
-  {
-    origin: 'http://localhost:3000',
-    credentials: true,
-  },
-));
 app.use(auth);
 app.use(routes);
 app.use(errorLogger);
