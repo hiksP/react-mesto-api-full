@@ -3,18 +3,24 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
+const cors = require('cors');
 const { routes } = require('./routes/routes');
 const NotFoundError = require('./errors/not-found-err');
 const auth = require('./middlewares/auth');
 const { login, createUser } = require('./controllers/userController');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 
 const app = express();
 
 app.use(cookieParser());
+app.use(cors(
+  {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  },
+));
 
 app.use((req, res, next) => {
   console.log(req.method, req.path);
@@ -22,7 +28,6 @@ app.use((req, res, next) => {
 });
 
 app.use(requestLogger);
-app.use(cors);
 app.use(express.json());
 app.post('/signin', express.json(), celebrate({
   body: Joi.object().keys({
