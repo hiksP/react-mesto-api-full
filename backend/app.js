@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
-const cors = require('cors');
+const cors = require('./middlewares/cors');
 const { routes } = require('./routes/routes');
 const NotFoundError = require('./errors/not-found-err');
 const auth = require('./middlewares/auth');
@@ -20,12 +20,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors(
-  {
-    origin: 'https://plavskikh.mesto.nomoredomains.xyz',
-    credentials: true,
-  },
-));
+app.use(cors);
 app.use(requestLogger);
 app.use(express.json());
 app.post('/signin', express.json(), celebrate({
