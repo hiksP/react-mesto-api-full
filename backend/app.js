@@ -22,9 +22,8 @@ app.use((req, res, next) => {
 
 app.use(cors(
   {
-    origin: 'http://localhost:3000',
+    origin: 'https://plavskikh.mesto.nomoredomains.xyz',
     credentials: true,
-    allowedHeaders: 'Content-type',
   },
 ));
 app.use(requestLogger);
