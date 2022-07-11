@@ -15,13 +15,6 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(cookieParser());
-app.use(cors(
-  {
-    origin: 'http://localhost:3000',
-    credentials: true,
-  },
-));
-
 app.use((req, res, next) => {
   console.log(req.method, req.path);
   next();
@@ -46,6 +39,12 @@ app.post('/signup', express.json(), celebrate({
     ),
   }),
 }), createUser);
+app.use(cors(
+  {
+    origin: 'http://localhost:3000',
+    credentials: true,
+  },
+));
 app.use(auth);
 app.use(routes);
 app.use(errorLogger);
