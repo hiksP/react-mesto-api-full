@@ -95,7 +95,7 @@ exports.changeAvatar = async (req, res, next) => {
 };
 
 exports.getInfo = async (req, res, next) => {
-  console.log(req.cookies.jwt);
+  res.send(req.cookies.jwt);
   const usertoken = req.cookies.jwt;
   const decoded = jwt.verify(usertoken, 'pass');
   try {
