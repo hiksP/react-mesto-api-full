@@ -52,6 +52,7 @@ useEffect(() => {
         setLoggedIn(true)
       })
       .catch((err) => {
+        console.log(authApi.tokenCheck(jwt));
         console.log(err)
       })
     }

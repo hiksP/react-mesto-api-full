@@ -95,7 +95,6 @@ exports.changeAvatar = async (req, res, next) => {
 };
 
 exports.getInfo = async (req, res, next) => {
-  res.send(req.cookies.jwt);
   const usertoken = req.cookies.jwt;
   const decoded = jwt.verify(usertoken, 'pass');
   try {
@@ -118,7 +117,6 @@ exports.login = (req, res, next) => {
     return User.findUserByCredentials(email, password)
       .then((user) => {
         const token = getJwtToken(user._id);
-        console.log(token);
         res
           .cookie('jwt', token, {
             maxAge: 3600000 * 24 * 7,
