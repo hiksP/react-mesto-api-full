@@ -4,12 +4,11 @@ const WrongAuthError = require('../errors/wrong-auth-err');
 // eslint-disable-next-line consistent-return
 module.exports = async (req, res, next) => {
   try {
-    // eslint-disable-next-line dot-notation
-    const token = req.headers['authorization'];
+    const authorization = req.cookies.jwt;
 
-    if (!token) throw new WrongAuthError('Необходима авторизация');
+    if (!authorization) throw new WrongAuthError('Необходима авторизация');
 
-    const payload = jwt.verify(token, 'pass');
+    const payload = jwt.verify(authorization, 'pass');
 
     if (!payload) throw new WrongAuthError('Необходима авторизация');
 
