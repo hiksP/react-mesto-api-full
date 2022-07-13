@@ -43,7 +43,7 @@ const [email, setEmail] = useState('');
 
 const [currentUser, setCurrentUser] = useState({})
 
-// функция передачи куки
+// функция создания куки
 const createCookieInHour = (cookieName, cookieValue, hourToExpire) => {
   let date = new Date();
   date.setTime(date.getTime()+(hourToExpire*60*60*1000));

@@ -103,6 +103,6 @@ class Api {
     // создание класса АПИ и его экспорт
 
 export const api = new Api({
-    adress: 'plavskikh.mesto.nomorepartiesxyz.ru',
+    adress: 'https://plavskikh.mesto.nomorepartiesxyz.ru',
     headers: { "Content-Type": "application/json" },
 })
