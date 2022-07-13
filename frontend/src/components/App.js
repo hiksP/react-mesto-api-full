@@ -43,16 +43,24 @@ const [email, setEmail] = useState('');
 
 const [currentUser, setCurrentUser] = useState({})
 
+// функция передачи куки
+const createCookieInHour = (cookieName, cookieValue, hourToExpire) => {
+  let date = new Date();
+  date.setTime(date.getTime()+(hourToExpire*60*60*1000));
+  document.cookie = cookieName + " = " + cookieValue + "; expires = " +date.toGMTString();
+};
+
 // проверка на наличие токена в хранилище браузера
 useEffect(() => {
-    const jwt = localStorage.getItem("jwt")
-    if(jwt) {
-      authApi.tokenCheck(jwt)
+    const token = localStorage.getItem("jwt")
+    createCookieInHour('jwt', token, 168);
+    if(token) {
+      authApi.tokenCheck(token)
       .then((res) => {
         setLoggedIn(true)
       })
       .catch((err) => {
-        console.log(authApi.tokenCheck(jwt));
+        console.log(authApi.tokenCheck(token));
         console.log(err)
       })
     }

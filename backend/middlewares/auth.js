@@ -5,6 +5,8 @@ const WrongAuthError = require('../errors/wrong-auth-err');
 module.exports = async (req, res, next) => {
   try {
     const authorization = req.cookies.jwt;
+    console.log(req.cookies);
+    console.log(authorization);
 
     if (!authorization) throw new WrongAuthError('Необходима авторизация');
 
