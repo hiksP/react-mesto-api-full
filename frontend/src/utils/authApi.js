@@ -39,8 +39,8 @@ class AuthApi {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization" : `Bearer ${token}`
             },
-            credentials: 'include'
         }).then(this._getResponseData)
     }
 
