@@ -64,7 +64,7 @@ async function main() {
   await mongoose.connect('mongodb://127.0.0.1/mestodb');
 
   app.listen(PORT, () => {
-    console.log('etwas');
+    console.log(`Server is running on port: ${PORT}`);
   });
 }
 

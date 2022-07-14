@@ -1,14 +1,14 @@
-POST  http://158.160.2.253:3000/signin
+POST  http://localhost:3000/signin
 Content-Type: application/json
 
 {
-  "email": "qksyo100@yandex.ru",
-  "password": "100100"
+  "email": "qksyo10@yandex.ru",
+  "password": "1010"
 }
 
 ###
 
-GET  http://158.160.2.253:3000/cards/
+GET  http://localhost:3000/localhost:3000/cards
 
 
 
@@ -24,8 +24,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/users/me
-
+GET http://localhost:3000/sign-out
 
 ###
 
