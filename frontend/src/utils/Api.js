@@ -1,7 +1,7 @@
 class Api {
-    constructor({adress, token}) {
+    constructor({adress, headers}) {
         this._adress = adress;
-        this._token = token;
+        this._headers = headers;
     }
 
 
@@ -49,8 +49,8 @@ class Api {
     uploadCard(cardName, cardLink) {
         return fetch(`${this._adress}/cards`, {
             method: "POST",
-            credentials: 'include',
             headers: this._headers,
+            credentials: 'include',
             body: JSON.stringify({
                 name: cardName,
                 link: cardLink

@@ -225,7 +225,7 @@ const closeAllPopups = () => {
   const sectionWithCards = () => {
     if (cards.length > 0) {
       return cards.map((cardInfo) => (
-         <Card card={cardInfo} onCardLike={handleCardLike} onCardDelete={handleCardDelete} key={cardInfo._id} selectedCard={handleCardClick} />
+         <Card key={cardInfo._id} card={cardInfo} onCardLike={handleCardLike} onCardDelete={handleCardDelete} selectedCard={handleCardClick} />
       ));
     }
   };
