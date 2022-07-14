@@ -24,6 +24,11 @@ app.use((req, res, next) => {
 app.use(requestLogger);
 app.use(cors);
 app.use(express.json());
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.post('/signin', express.json(), celebrate({
   body: Joi.object().keys({
     email: Joi.string().email().required(),
