@@ -103,6 +103,7 @@ const handleCardClick  = (card) => {
  const handleUpdateUser = (user) => {
   api.editInfo(user.name, user.about)
   .then(res => {
+    console.log(res);
     setCurrentUser(res)
   })
   .catch(err => {
@@ -114,6 +115,7 @@ const handleCardClick  = (card) => {
  const handleUpdateAvatar = (input) => {
     api.changeAvatar(input.avatar)
     .then(res => {
+      console.log(res);
       setCurrentUser(res)
     })
     .catch(err => {

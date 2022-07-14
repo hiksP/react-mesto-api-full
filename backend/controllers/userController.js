@@ -68,7 +68,7 @@ exports.updateUser = async (req, res, next) => {
     new: true,
     runValidators: true,
   })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new WrongReqErorr('Переданы некорректные данные'));
@@ -84,7 +84,7 @@ exports.changeAvatar = async (req, res, next) => {
     new: true,
     runValidators: true,
   })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new WrongReqErorr('Переданы некорректные данные'));
