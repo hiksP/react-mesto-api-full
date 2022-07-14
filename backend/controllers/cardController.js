@@ -41,7 +41,7 @@ module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner: req.user.id })
-    .then((card) => res.send({ data: card }))
+    .then((card) => res.send({ card }))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new WrongReqErorr('Переданы некорректные данные'));

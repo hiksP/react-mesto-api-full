@@ -3,6 +3,7 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 
 // создание экземляра карточки
 export function Card({card, selectedCard, onCardLike, onCardDelete}) {
+    console.log(card);
 
     // подписка на контекст с пользователем 
   
@@ -26,7 +27,7 @@ export function Card({card, selectedCard, onCardLike, onCardDelete}) {
     const handleLike = () => {
         onCardLike(card); 
     }
-
+ 
     const handleOpenCardPopup = () => {
         selectedCard(card);
     }
