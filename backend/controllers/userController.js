@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const bcrypt = require('bcrypt');
 const { User } = require('../models/user');
 const { getJwtToken } = require('../utils/jwt');
@@ -6,6 +7,9 @@ const NotFoundError = require('../errors/not-found-err');
 const WrongAuthError = require('../errors/wrong-auth-err');
 const WrongReqErorr = require('../errors/wrong-req-err');
 const UserCreatedError = require('../errors/user-created-err');
+
+const { NODE_ENV, JWT_SECRET } = process.env;
+const secret = NODE_ENV === 'production' ? JWT_SECRET : 'pass';
 
 exports.getUsers = async (req, res, next) => {
   try {
@@ -96,7 +100,7 @@ exports.changeAvatar = async (req, res, next) => {
 
 exports.getInfo = async (req, res, next) => {
   const usertoken = req.cookies.jwt;
-  const decoded = jwt.verify(usertoken, 'pass');
+  const decoded = jwt.verify(usertoken, secret);
   try {
     const user = await User.findById(decoded.id);
     if (user == null) {
