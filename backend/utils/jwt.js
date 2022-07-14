@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
-const JWT_SECRET = 'pass';
+const { NODE_ENV, JWT_SECRET } = process.env;
+const secret = NODE_ENV === 'production' ? JWT_SECRET : 'pass';
 
-const getJwtToken = (id) => jwt.sign({ id }, JWT_SECRET, { expiresIn: '7d' });
+const getJwtToken = (id) => jwt.sign({ id }, secret, { expiresIn: '7d' });
 
 module.exports = { getJwtToken };
