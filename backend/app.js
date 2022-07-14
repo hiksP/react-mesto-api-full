@@ -9,6 +9,7 @@ const NotFoundError = require('./errors/not-found-err');
 const auth = require('./middlewares/auth');
 const { login, createUser } = require('./controllers/userController');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+require('dotenv').config();
 
 const { PORT = 3000 } = process.env;
 
